@@ -1,0 +1,28 @@
+{
+  "name": "monorepo-design-system-tokens",
+  "version": "0.0.0",
+  "description": "Monorepo Design System Tokens",
+  "author": "Saluna Alavi <salunaalavi@gmail.com>",
+  "homepage": "https://github.com/salunaalavi/monorepo-design-system#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist",
+    "src": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salunaalavi/monorepo-design-system.git"
+  },
+  "scripts": {
+    "compile": "rollup -c",
+    "compile:watch": "rollup -c -w",
+    "docs:dev": "npm run compile:watch"
+  },
+  "bugs": {
+    "url": "https://github.com/salunaalavi/monorepo-design-system/issues"
+  }
+}
