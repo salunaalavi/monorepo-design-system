@@ -28,7 +28,7 @@ export default [
       dts(),
     ],
     output: {
-      file: `dist/d.ts`,
+      file: `dist/index.d.ts`,
       format: 'es'
     }
   }
