@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./",
     // Target latest version of ECMAScript.
     "target": "ESNext",
     // Search under node_modules for non-relative imports.
@@ -8,7 +8,10 @@
     "jsx": "react",
     // Don't emit; allow Babel to transform files.
     "noEmit": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  "exclude": ["dist"]
+  "exclude": ["dist"],
 }
