@@ -1,4 +1,6 @@
-var palette = {
+'use strict';
+
+const palette = {
   primary: {
     main: "#0d47a1"
   },
@@ -14,8 +16,8 @@ var palette = {
   }
 };
 
-var designTokens = {
-  palette: palette
+const designTokens = {
+  palette
 };
 
-export { designTokens as default };
+module.exports = designTokens;

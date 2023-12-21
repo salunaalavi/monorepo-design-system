@@ -28,6 +28,7 @@ const palette: PaletteInterface = {
   },
   text: {
     primary: "#263238",
+    secondary: "#263238",
   },
   common: {
     white: "#FFFFFF",

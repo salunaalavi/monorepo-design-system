@@ -1,5 +1,5 @@
 import babel from 'rollup-plugin-babel'
-import typescript from 'rollup-plugin-typescript';
+import typescript from '@rollup/plugin-typescript';
 
 const plugins = [
   typescript(),
@@ -17,7 +17,7 @@ export default [
     plugins,
     output: {
       file: `dist/index.js`,
-      format: 'esm'
+      format: 'cjs'
     }
   }
 ]
