@@ -18,6 +18,7 @@ declare const stateMap: {
     };
 };
 
+declare const StyledComponentsProvider: ({ children, }: React.PropsWithChildren) => React.JSX.Element;
 interface CheckboxProps extends Override<ComponentPropsWithoutRef<"input">, {
     color?: typeof designTokens.palette;
     size?: keyof typeof sizeMap;
@@ -29,4 +30,4 @@ interface CheckboxProps extends Override<ComponentPropsWithoutRef<"input">, {
 }
 declare const Checkbox: React.FC<CheckboxProps>;
 
-export { Checkbox };
+export { Checkbox, StyledComponentsProvider };

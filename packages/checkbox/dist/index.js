@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'classnames';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import designTokens from 'monorepo-design-system-tokens';
 
 const StyledLabel = styled.label`
@@ -10,12 +10,12 @@ const StyledLabel = styled.label`
   font-size: calc((2.5rem / 2) * ${props => props.$size});
   color: ${props => {
   if (props.$themeMode === "light") {
-    return props.theme.colors.neutral[900];
+    return props.theme.colors.main;
   }
   if (typeof props.$color === "string") {
     return props.$color;
   }
-  return props.theme.colors.white;
+  return props.theme.colors.primary.main;
 }};
 
   &:has(input:disabled) {
@@ -67,6 +67,15 @@ const stateMap = {
   success: designTokens.palette.secondary
 };
 
+const theme = {
+  colors: designTokens.palette,
+  fonts: ["sans-serif", "Poppins"]
+};
+const StyledComponentsProvider = ({
+  children
+}) => ( /*#__PURE__*/React.createElement(ThemeProvider, {
+  theme: theme
+}, children));
 const Checkbox = ({
   children,
   className,
@@ -76,7 +85,7 @@ const Checkbox = ({
   scale,
   theme,
   ...props
-}) => ( /*#__PURE__*/React.createElement(StyledLabel, {
+}) => ( /*#__PURE__*/React.createElement(StyledComponentsProvider, null, /*#__PURE__*/React.createElement(StyledLabel, {
   className: clsx(sizeMap[size || "normal"], className),
   "$color": color || stateMap[props.disabled ? "disabled" : state || "success"],
   "$size": scale || 1,
@@ -85,6 +94,6 @@ const Checkbox = ({
   ...props,
   type: "checkbox",
   id: props.name
-}), /*#__PURE__*/React.createElement("span", null), children));
+}), /*#__PURE__*/React.createElement("span", null), children)));
 
-export { Checkbox };
+export { Checkbox, StyledComponentsProvider };
