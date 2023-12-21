@@ -2,6 +2,9 @@ import React, {
   ComponentPropsWithoutRef,
 } from "react";
 import clsx from "classnames";
+import {
+  ThemeProvider,
+} from "styled-components";
 import designTokens from "monorepo-design-system-tokens";  
 import {
   Override,
@@ -14,6 +17,19 @@ import {
   sizeMap,
   stateMap,
 } from "./utils";
+
+const theme = {
+  colors: designTokens.palette,
+  fonts: ["sans-serif", "Poppins"],
+};
+
+export const StyledComponentsProvider = ({
+  children,
+}: React.PropsWithChildren) => (
+  <ThemeProvider theme={theme}>
+    {children}
+  </ThemeProvider>
+);
 
 interface CheckboxProps extends Override<ComponentPropsWithoutRef<"input">, {
   color?: typeof designTokens.palette;
@@ -35,24 +51,26 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   theme,
   ...props
 }) => (
-  <StyledLabel
-    className={clsx(sizeMap[size || "normal"], className)}
-    $color={
-      color || stateMap[props.disabled ? "disabled" : state || "success"]
-    }
-    $size={scale || 1}
-    $themeMode={theme || "light"}
-  >
-    <input
-      {...props}
-      type="checkbox"
-      id={props.name}
-    />
-    <span />
-    {
-      children
-    }
-  </StyledLabel>
+  <StyledComponentsProvider>
+    <StyledLabel
+      className={clsx(sizeMap[size || "normal"], className)}
+      $color={
+        color || stateMap[props.disabled ? "disabled" : state || "success"]
+      }
+      $size={scale || 1}
+      $themeMode={theme || "light"}
+    >
+      <input
+        {...props}
+        type="checkbox"
+        id={props.name}
+      />
+      <span />
+      {
+        children
+      }
+    </StyledLabel>
+  </StyledComponentsProvider>
 );
 
 export default Checkbox;

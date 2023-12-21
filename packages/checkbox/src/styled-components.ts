@@ -17,11 +17,11 @@ export const StyledLabel = styled.label<LabelProps>`
   font-size: calc((2.5rem / 2) * ${(props) => props.$size});
   color: ${(props) => {
     if (props.$themeMode === "light") {
-      return props.theme.colors.neutral[900];
+      return props.theme.colors.main;
     } if (typeof props.$color === "string") {
       return props.$color;
     }
-    return props.theme.colors.white;
+    return props.theme.colors.primary.main;
   }};
 
   &:has(input:disabled) {
