@@ -1,5 +1,3 @@
-'use strict';
-
 const palette = {
   primary: {
     main: "#0d47a1"
@@ -8,7 +6,8 @@ const palette = {
     main: "#311b92"
   },
   text: {
-    primary: "#263238"
+    primary: "#263238",
+    secondary: "#263238"
   },
   common: {
     white: "#FFFFFF",
@@ -20,4 +19,4 @@ const designTokens = {
   palette
 };
 
-module.exports = designTokens;
+export { designTokens as default };
