@@ -1,0 +1,42 @@
+{
+  "name": "monorepo-design-system-button",
+  "version": "0.0.1-alpha.0",
+  "description": "Monorepo Design System Tokens Button",
+  "author": "Saluna Alavi <salunaalavi@gmail.com>",
+  "homepage": "https://github.com/salunaalavi/monorepo-design-system#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist",
+    "src": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salunaalavi/monorepo-design-system.git"
+  },
+  "scripts": {
+    "compile": "rollup -c",
+    "compile:watch": "rollup -c -w",
+    "docs:dev": "npm run compile:watch"
+  },
+  "bugs": {
+    "url": "https://github.com/salunaalavi/monorepo-design-system/issues"
+  },
+  "dependencies": {
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "classnames": "^2.3.2",
+    "framer-motion": "^10.16.16",
+    "monorepo-design-system-tokens": "^0.0.4-alpha.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.2"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}

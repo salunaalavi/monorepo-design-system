@@ -1,0 +1,41 @@
+.root {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-weight: 600;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.root input {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.root span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.root span::after {
+  position: absolute;
+  display: none;
+  content: "";
+}
+
+.root input:checked ~ span::after {
+  display: block;
+}
+
+.root span::after {
+  border: 1px solid white;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
