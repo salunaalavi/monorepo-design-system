@@ -16,7 +16,10 @@ export default [
         include: ['src/**/*'],
         rootMode: 'upward'
       }),
-      css(),
+      css({
+        rewrite: false,
+        before: []
+      }),
     ],
     output: {
       file: `dist/index.js`,
@@ -28,7 +31,10 @@ export default [
     plugins: [
       typescript(),
       dts(),
-      css(),
+      css({
+        rewrite: false,
+        before: []
+      }),
     ],
     output: {
       file: `dist/index.d.ts`,

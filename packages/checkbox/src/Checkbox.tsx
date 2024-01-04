@@ -8,7 +8,7 @@ import {
 import designTokens from "monorepo-design-system-tokens";  
 import {
   Override,
-} from "@/utils";
+} from "@/";
 import styles from "./styles.css";
 import {
   StyledLabel,
