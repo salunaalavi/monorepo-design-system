@@ -1,4 +1,5 @@
-.root {
+/* src/styles.css */
+.mc88603319_root {
   display: block;
   position: relative;
   cursor: pointer;
@@ -9,7 +10,7 @@
   user-select: none;
 }
 
-.root input {
+.mc88603319_root input {
   position: absolute;
   cursor: pointer;
   opacity: 0;
@@ -17,23 +18,23 @@
   width: 0;
 }
 
-.root span {
+.mc88603319_root span {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.root span::after {
+.mc88603319_root span::after {
   position: absolute;
   display: none;
   content: "";
 }
 
-.root input:checked ~ span::after {
+.mc88603319_root input:checked ~ span::after {
   display: block;
 }
 
-.root span::after {
+.mc88603319_root span::after {
   border: 1px solid white;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);

@@ -13,5 +13,6 @@
       "@/*": ["./*"]
     }
   },
+  "include": ["./declaration.d.ts"],
   "exclude": ["dist"],
 }

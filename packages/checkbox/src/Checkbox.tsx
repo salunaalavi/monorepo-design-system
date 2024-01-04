@@ -9,7 +9,7 @@ import designTokens from "monorepo-design-system-tokens";
 import {
   Override,
 } from "@/utils";
-// import styles from "./styles.module.scss";
+import styles from "./styles.css";
 import {
   StyledLabel,
 } from "./styled-components";
@@ -36,7 +36,6 @@ interface CheckboxProps extends Override<ComponentPropsWithoutRef<"input">, {
   size?: keyof typeof sizeMap;
 }> {
   theme?: "light" | "dark";
-  name: string;
   state?: keyof typeof stateMap;
   scale?: number;
 }
@@ -53,7 +52,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 }) => (
   <StyledComponentsProvider>
     <StyledLabel
-      className={clsx(sizeMap[size || "normal"], className)}
+      className={clsx(styles.root, sizeMap[size || "normal"], className)}
       $color={
         color || stateMap[props.disabled ? "disabled" : state || "success"]
       }
@@ -63,7 +62,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       <input
         {...props}
         type="checkbox"
-        id={props.name}
+        // id={props.name}
       />
       <span />
       {

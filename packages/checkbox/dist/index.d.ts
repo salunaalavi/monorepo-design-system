@@ -24,7 +24,6 @@ interface CheckboxProps extends Override<ComponentPropsWithoutRef<"input">, {
     size?: keyof typeof sizeMap;
 }> {
     theme?: "light" | "dark";
-    name: string;
     state?: keyof typeof stateMap;
     scale?: number;
 }
