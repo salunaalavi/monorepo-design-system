@@ -6,6 +6,7 @@ import {
 } from "rollup-plugin-terser";
 import typescript from '@rollup/plugin-typescript';
 import postcss from "rollup-plugin-postcss";
+import scss from "rollup-plugin-scss";
 import dts from 'rollup-plugin-dts';
 import autoprefixer from "autoprefixer";
 
@@ -13,19 +14,18 @@ export default [
   {
     input: 'src/index.ts',
     plugins: [
-      typescript(),
+      scss({
+        output: true,
+        failOnError: true,
+        outputStyle: "compressed",
+      }),
       babel({
         exclude: 'node_modules/**',
         extensions: ['.ts', '.tsx', '.js', '.jsx'],
         include: ['src/**/*'],
         rootMode: 'upward'
       }),
-      postcss({
-        plugins: [autoprefixer],
-        sourceMap: true,
-        extract: true,
-        minimize: true,
-      }),
+      typescript(),
     ],
     output: {
       file: `dist/index.js`,
@@ -35,14 +35,19 @@ export default [
   {
     input: 'src/index.ts',
     plugins: [
+      scss({
+        output: true,
+        failOnError: true,
+        outputStyle: "compressed",
+      }),
+      babel({
+        exclude: 'node_modules/**',
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        include: ['src/**/*'],
+        rootMode: 'upward'
+      }),
       typescript(),
       dts(),
-      postcss({
-        plugins: [autoprefixer],
-        sourceMap: true,
-        extract: true,
-        minimize: true,
-      }),
     ],
     output: {
       file: `dist/index.d.ts`,
