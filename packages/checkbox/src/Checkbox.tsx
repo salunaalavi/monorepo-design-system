@@ -17,7 +17,7 @@ import {
   sizeMap,
   stateMap,
 } from "./utils";
-// import "./styes.scss";
+import styles from "./styles.module.css";
 
 const theme = {
   colors: designTokens.palette,
@@ -53,7 +53,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 }) => (
   <StyledComponentsProvider>
     <StyledLabel
-      className={clsx("root", sizeMap[size || "normal"], className)}
+      className={clsx(styles.root, sizeMap[size || "normal"], className)}
       $color={
         color || stateMap[props.disabled ? "disabled" : state || "success"]
       }

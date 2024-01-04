@@ -1,5 +1,8 @@
 {
+  "include": ["./declaration.d.ts"],
+  "exclude": ["dist"],
   "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "baseUrl": "./",
     // Target latest version of ECMAScript.
     "target": "ESNext",
@@ -13,6 +16,4 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["./declaration.d.ts"],
-  "exclude": ["dist"],
 }
