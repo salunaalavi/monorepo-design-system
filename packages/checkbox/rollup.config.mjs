@@ -4,6 +4,7 @@ import {
 import {
   terser
 } from "rollup-plugin-terser";
+import path from "path";
 import typescript from '@rollup/plugin-typescript';
 import postcss from "rollup-plugin-postcss";
 import dts from 'rollup-plugin-dts';
@@ -11,7 +12,6 @@ import autoprefixer from "autoprefixer";
 
 export default [
   {
-    preserveModules: true,
     input: 'src/index.ts',
     plugins: [
       postcss({
@@ -28,12 +28,13 @@ export default [
       }),
     ],
     output: {
-      dir: `dist`,
+      dir: `./dist`,
+      preserveModules: true,
+      preserveModulesRoot: "src",
       format: 'esm'
     }
   },
   {
-    preserveModules: true,
     input: 'src/index.ts',
     plugins: [
       postcss({
@@ -45,7 +46,7 @@ export default [
       dts(),
     ],
     output: {
-      dir: `dist`,
+      dir: `./dist`,
       format: 'es'
     }
   }

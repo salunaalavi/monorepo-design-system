@@ -1,4 +1,4 @@
-import { extends as _extends } from '../../../_virtual/_rollupPluginBabelHelpers.js';
+import { extends as _extends } from './_virtual/_rollupPluginBabelHelpers.js';
 import React from 'react';
 import clsx from 'classnames';
 import { ThemeProvider } from 'styled-components';
