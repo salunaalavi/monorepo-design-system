@@ -17,7 +17,7 @@ import {
   sizeMap,
   stateMap,
 } from "./utils";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 const theme = {
   colors: designTokens.palette,

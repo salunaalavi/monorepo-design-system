@@ -1,5 +1,6 @@
 .root {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   cursor: pointer;
   font-weight: 600;
@@ -33,7 +34,6 @@
   }
 
   & span::after {
-    border: 1px solid white;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);

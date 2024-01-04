@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import designTokens from 'monorepo-design-system-tokens';
 import { StyledLabel } from './styled-components.js';
 import { sizeMap, stateMap } from './utils.js';
-import styles from './styles.module.css.js';
+import styles from './styles.module.scss.js';
 
 const theme = {
   colors: designTokens.palette,
