@@ -1,0 +1,2 @@
+.root{cursor:pointer;display:block;font-weight:600;position:relative;-webkit-user-select:none;-moz-user-select:none;user-select:none}.root input{cursor:pointer;height:0;opacity:0;position:absolute;width:0}.root span{left:0;position:absolute;top:0}.root span:after{content:"";display:none;position:absolute}.root input:checked~span:after{display:block}.root span:after{border:1px solid #fff;transform:rotate(45deg)}
+/*# sourceMappingURL=index.css.map */

@@ -18,11 +18,6 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-const root = "mc88603319_root";
-var styles = {
-    root
-};
-
 const StyledLabel = styled.label`
   padding-left: calc(2rem * ${props => props.$size});
   height: calc(1.5rem * ${props => props.$size});
@@ -88,6 +83,8 @@ const stateMap = {
   success: designTokens.palette.secondary
 };
 
+// import "./styes.scss";
+
 const theme = {
   colors: designTokens.palette,
   fonts: ["sans-serif", "Poppins"]
@@ -107,7 +104,7 @@ const Checkbox = ({
   theme,
   ...props
 }) => /*#__PURE__*/React.createElement(StyledComponentsProvider, null, /*#__PURE__*/React.createElement(StyledLabel, {
-  className: clsx(styles.root, sizeMap[size || "normal"], className),
+  className: clsx("root", sizeMap[size || "normal"], className),
   $color: color || stateMap[props.disabled ? "disabled" : state || "success"],
   $size: scale || 1,
   $themeMode: theme || "light"

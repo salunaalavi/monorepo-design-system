@@ -1,6 +1,6 @@
-import React, { ComponentPropsWithoutRef } from 'react';
+import React, { PropsWithChildren, ComponentPropsWithoutRef } from 'react';
 import designTokens from 'monorepo-design-system-tokens';
-import { Override } from '@/utils';
+import { Override } from 'monorepo-design-system-utils';
 
 declare const sizeMap: {
     normal: string;
@@ -18,7 +18,7 @@ declare const stateMap: {
     };
 };
 
-declare const StyledComponentsProvider: ({ children, }: React.PropsWithChildren) => React.JSX.Element;
+declare const StyledComponentsProvider: ({ children, }: PropsWithChildren) => React.JSX.Element;
 interface CheckboxProps extends Override<ComponentPropsWithoutRef<"input">, {
     color?: typeof designTokens.palette;
     size?: keyof typeof sizeMap;

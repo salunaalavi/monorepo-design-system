@@ -1,5 +1,6 @@
 import React, {
   ComponentPropsWithoutRef,
+  PropsWithChildren,
 } from "react";
 import clsx from "classnames";
 import {
@@ -8,8 +9,7 @@ import {
 import designTokens from "monorepo-design-system-tokens";  
 import {
   Override,
-} from "@/";
-import styles from "./styles.css";
+} from "monorepo-design-system-utils";
 import {
   StyledLabel,
 } from "./styled-components";
@@ -17,6 +17,7 @@ import {
   sizeMap,
   stateMap,
 } from "./utils";
+// import "./styes.scss";
 
 const theme = {
   colors: designTokens.palette,
@@ -25,7 +26,7 @@ const theme = {
 
 export const StyledComponentsProvider = ({
   children,
-}: React.PropsWithChildren) => (
+}: PropsWithChildren) => (
   <ThemeProvider theme={theme}>
     {children}
   </ThemeProvider>
@@ -52,7 +53,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 }) => (
   <StyledComponentsProvider>
     <StyledLabel
-      className={clsx(styles.root, sizeMap[size || "normal"], className)}
+      className={clsx("root", sizeMap[size || "normal"], className)}
       $color={
         color || stateMap[props.disabled ? "disabled" : state || "success"]
       }

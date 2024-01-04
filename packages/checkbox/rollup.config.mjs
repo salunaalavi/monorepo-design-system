@@ -1,9 +1,13 @@
 import {
   babel
-} from '@rollup/plugin-babel'
+} from '@rollup/plugin-babel';
+import {
+  terser
+} from "rollup-plugin-terser";
 import typescript from '@rollup/plugin-typescript';
-import css from "@modular-css/rollup";
+import postcss from "rollup-plugin-postcss";
 import dts from 'rollup-plugin-dts';
+import autoprefixer from "autoprefixer";
 
 export default [
   {
@@ -16,9 +20,11 @@ export default [
         include: ['src/**/*'],
         rootMode: 'upward'
       }),
-      css({
-        rewrite: false,
-        before: []
+      postcss({
+        plugins: [autoprefixer],
+        sourceMap: true,
+        extract: true,
+        minimize: true,
       }),
     ],
     output: {
@@ -31,9 +37,11 @@ export default [
     plugins: [
       typescript(),
       dts(),
-      css({
-        rewrite: false,
-        before: []
+      postcss({
+        plugins: [autoprefixer],
+        sourceMap: true,
+        extract: true,
+        minimize: true,
       }),
     ],
     output: {
