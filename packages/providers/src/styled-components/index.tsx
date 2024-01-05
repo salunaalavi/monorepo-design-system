@@ -13,9 +13,8 @@ type TTheme = {
 }
 
 export const withStyledComponents = <ComponentProps extends {}>(Component: FC<ComponentProps>) => {
-  const { colors } = useToken();
-
   const ComponentWithTheme = (props: ComponentProps) => {
+    const { colors } = useToken();
     const theme = {
       colors: colors,
       fonts: ["sans-serif", "Poppins"],

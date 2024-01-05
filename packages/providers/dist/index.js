@@ -3,10 +3,10 @@ import baseStyled, { ThemeProvider } from 'styled-components';
 import { useToken } from 'monorepo-design-system-tokens';
 
 const withStyledComponents = Component => {
-  const {
-    colors
-  } = useToken();
   const ComponentWithTheme = props => {
+    const {
+      colors
+    } = useToken();
     const theme = {
       colors: colors,
       fonts: ["sans-serif", "Poppins"]
