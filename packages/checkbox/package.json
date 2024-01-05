@@ -32,20 +32,13 @@
     "@types/react-dom": "^18.2.18",
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.16",
-    "monorepo-design-system-providers": "^0.0.22-alpha.0",
+    "monorepo-design-system-providers": "^0.0.26-alpha.0",
     "monorepo-design-system-tokens": "^0.0.24-alpha.0",
     "monorepo-design-system-utils": "^0.0.24-alpha.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^6.1.2"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.34",
-    "autoprefixer": "^10.4.16",
-    "postcss-import": "^16.0.0",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-scss": "^4.0.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.69.5"
+    "rollup-plugin-postcss": "^4.0.2"
   }
 }

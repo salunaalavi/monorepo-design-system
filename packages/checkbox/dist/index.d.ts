@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, ComponentPropsWithoutRef } from 'react';
-import { PaletteInterface } from 'monorepo-design-system-tokens';
+import { PaletteToken } from 'monorepo-design-system-tokens';
 import { Override } from 'monorepo-design-system-utils';
 
 declare const sizeMap: {
@@ -34,7 +34,7 @@ declare const stateMap: {
 
 declare const StyledComponentsProvider: ({ children, }: PropsWithChildren) => React.JSX.Element;
 interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
-    color?: PaletteInterface[keyof PaletteInterface] | string;
+    color?: PaletteToken[keyof PaletteToken] | string;
     size?: keyof typeof sizeMap;
     input?: ComponentPropsWithoutRef<"input">;
     disabled?: boolean;
@@ -43,6 +43,6 @@ interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
     state?: keyof typeof stateMap;
     scale?: number;
 }
-declare const Checkbox: React.FC<CheckboxProps>;
+declare const Checkbox: (props: CheckboxProps) => React.JSX.Element;
 
 export { Checkbox, StyledComponentsProvider };

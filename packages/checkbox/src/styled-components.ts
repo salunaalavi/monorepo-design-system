@@ -2,17 +2,13 @@ import {
   ComponentPropsWithoutRef,
 } from "react";
 import {
-  palette,
   PaletteToken,
 } from "monorepo-design-system-tokens";  
-import styled, {
-  withTheme
-} from "styled-components";
 import {
-  withStyledComponents,
+  styled,
 } from "monorepo-design-system-providers";
 
-interface LabelProps extends ComponentPropsWithoutRef<"span"> {
+interface LabelProps extends ComponentPropsWithoutRef <"span"> {
   $size: number;
   $themeMode: string;
   $color: PaletteToken[keyof PaletteToken] | string;
@@ -25,11 +21,13 @@ export const StyledLabel = styled.label<LabelProps>`
   font-size: calc((2.5rem / 2) * ${(props) => props.$size});
   color: ${(props) => {
     if (props.$themeMode === "light") {
-      return props.theme.colors.main;
+      return props.theme.colors.common.black;
     } if (typeof props.$color === "string") {
       return props.$color;
+    } if (props.$color) {
+      return props.$color[500]
     }
-    return props.theme.colors.main;
+    return props.theme.colors.common.white;
   }};
 
   &:has(input:disabled) {
@@ -44,7 +42,7 @@ export const StyledLabel = styled.label<LabelProps>`
 
   & input:not(:checked) ~ span {
     border-width: calc(0.2rem * ${(props) => props.$size});
-    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[600])};
+    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[500])};
   }
 
   &:hover input:not(:checked):not(:disabled) ~ span {

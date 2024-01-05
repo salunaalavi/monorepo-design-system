@@ -1,14 +1,9 @@
 import {
   babel
 } from '@rollup/plugin-babel';
-import {
-  terser
-} from "rollup-plugin-terser";
-import path from "path";
 import typescript from '@rollup/plugin-typescript';
 import postcss from "rollup-plugin-postcss";
 import dts from 'rollup-plugin-dts';
-import autoprefixer from "autoprefixer";
 
 export default [
   {

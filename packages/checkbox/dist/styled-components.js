@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from 'monorepo-design-system-providers';
 
 const StyledLabel = styled.label`
   padding-left: calc(2rem * ${props => props.$size});
@@ -7,12 +7,15 @@ const StyledLabel = styled.label`
   font-size: calc((2.5rem / 2) * ${props => props.$size});
   color: ${props => {
   if (props.$themeMode === "light") {
-    return props.theme.colors.main;
+    return props.theme.colors.common.black;
   }
   if (typeof props.$color === "string") {
     return props.$color;
   }
-  return props.theme.colors.primary.main;
+  if (props.$color) {
+    return props.$color[500];
+  }
+  return props.theme.colors.common.white;
 }};
 
   &:has(input:disabled) {
@@ -27,20 +30,20 @@ const StyledLabel = styled.label`
 
   & input:not(:checked) ~ span {
     border-width: calc(0.2rem * ${props => props.$size});
-    border-color: ${props => typeof props.$color === "string" ? props.$color : props.$color.primary[500]};
+    border-color: ${props => typeof props.$color === "string" ? props.$color : props.$color[500]};
   }
 
   &:hover input:not(:checked):not(:disabled) ~ span {
     border-width: calc(0.2rem * ${props => props.$size});
-    border-color: ${props => typeof props.$color === "string" ? props.$color : props.$color.primary[600]};
+    border-color: ${props => typeof props.$color === "string" ? props.$color : props.$color[600]};
   }
 
   &:hover input:checked:not(:disabled) ~ span {
-    background-color: ${props => typeof props.$color === "string" ? props.$color : props.$color.primary[600]};
+    background-color: ${props => typeof props.$color === "string" ? props.$color : props.$color[600]};
   }
 
   & input:checked ~ span {
-    background-color: ${props => typeof props.$color === "string" ? props.$color : props.$color.primary[500]};
+    background-color: ${props => typeof props.$color === "string" ? props.$color : props.$color[500]};
   }
 
   & span::after {
