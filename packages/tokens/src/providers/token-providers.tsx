@@ -3,7 +3,7 @@ import React, {
   useContext,
   PropsWithChildren,
 } from "react";
-import palette, { PaletteInterface } from "../palette";
+import { palette, PaletteInterface } from "../palette";
 
 const TokenContext = createContext({
   color: palette,

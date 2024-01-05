@@ -77,4 +77,4 @@ declare const useToken: () => {
     };
 };
 
-export { type PaletteInterface, TokenProvider, useToken };
+export { type PaletteInterface, TokenProvider, palette, useToken };

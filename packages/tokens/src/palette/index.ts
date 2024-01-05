@@ -1,4 +1,4 @@
-const palette = {
+export const palette = {
   primary: {
     main: "#0d47a1",
     100: "#DCF1FC",
@@ -34,5 +34,3 @@ const palette = {
 };
 
 export type PaletteInterface = (typeof palette);
-
-export default palette

@@ -51,4 +51,4 @@ const useToken = () => {
   return context;
 };
 
-export { TokenProvider, useToken };
+export { TokenProvider, palette, useToken };
