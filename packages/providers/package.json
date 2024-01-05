@@ -1,6 +1,6 @@
 {
   "name": "monorepo-design-system-providers",
-  "version": "0.0.23-alpha.0",
+  "version": "0.0.24-alpha.0",
   "description": "Monorepo Design System Providers",
   "author": "Saluna Alavi <salunaalavi@gmail.com>",
   "homepage": "https://github.com/salunaalavi/monorepo-design-system#readme",
@@ -29,8 +29,8 @@
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
-    "monorepo-design-system-tokens": "^0.0.21-alpha.0",
-    "monorepo-design-system-utils": "^0.0.14-alpha.0",
+    "monorepo-design-system-tokens": "^0.0.24-alpha.0",
+    "monorepo-design-system-utils": "^0.0.24-alpha.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.1.2"
