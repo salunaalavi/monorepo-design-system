@@ -6,10 +6,7 @@ type TTheme = {
     colors: PaletteToken[keyof PaletteToken];
     fonts: string[];
 };
-interface ThemeProviderProps {
-    theme: TTheme;
-}
-declare const withStyledComponents: <ComponentProps extends ThemeProviderProps>(Component: React.ComponentType<ComponentProps>) => (props: Omit<ComponentProps, "theme">) => React.JSX.Element;
+declare const withStyledComponents: <ComponentProps extends {}>(Component: React.FC<ComponentProps>) => (props: ComponentProps) => React.JSX.Element;
 declare const styled: ThemedStyledInterface<TTheme>;
 
 export { styled, withStyledComponents };

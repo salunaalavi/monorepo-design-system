@@ -1,5 +1,5 @@
 import React, {
-  ComponentType,
+  FC,
 } from "react";
 import baseStyled, {
   ThemeProvider,
@@ -12,14 +12,10 @@ type TTheme = {
   fonts: string[],
 }
 
-interface ThemeProviderProps {
-  theme: TTheme,
-}
-
-export const withStyledComponents = <ComponentProps extends ThemeProviderProps>(Component: ComponentType<ComponentProps>) => {
+export const withStyledComponents = <ComponentProps extends {}>(Component: FC<ComponentProps>) => {
   const { colors } = useToken();
 
-  const ComponentWithTheme = (props: Omit<ComponentProps, keyof ThemeProviderProps>) => {
+  const ComponentWithTheme = (props: ComponentProps) => {
     const theme = {
       colors: colors,
       fonts: ["sans-serif", "Poppins"],
