@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import baseStyled, { ThemeProvider } from 'styled-components';
 import { useToken } from 'monorepo-design-system-tokens';
 
 const withStyledComponents = Component => {
@@ -17,5 +17,6 @@ const withStyledComponents = Component => {
   };
   return ComponentWithTheme;
 };
+const styled = baseStyled;
 
-export { withStyledComponents };
+export { styled, withStyledComponents };

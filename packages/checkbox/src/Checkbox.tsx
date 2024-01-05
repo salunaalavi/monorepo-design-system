@@ -5,10 +5,15 @@ import React, {
 import clsx from "classnames";
 import {
   ThemeProvider,
+  withTheme,
+  useTheme,
 } from "styled-components";
 import {
+  withStyledComponents,
+} from "monorepo-design-system-providers";
+import {
   palette,
-  PaletteInterface,
+  PaletteToken,
   useToken,
 } from "monorepo-design-system-tokens";  
 import {
@@ -26,10 +31,10 @@ import styles from "./styles.module.scss";
 export const StyledComponentsProvider = ({
   children,
 }: PropsWithChildren) => {
-  const { color } = useToken();
+  const { colors } = useToken();
 
   const theme = {
-    colors: color,
+    colors,
     fonts: ["sans-serif", "Poppins"],
   };
 
@@ -40,7 +45,7 @@ export const StyledComponentsProvider = ({
 )};
 
 interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
-  color?: PaletteInterface[keyof PaletteInterface] | string;
+  color?: PaletteToken[keyof PaletteToken] | string;
   size?: keyof typeof sizeMap;
   input?: ComponentPropsWithoutRef<"input">,
   disabled?: boolean,
@@ -50,7 +55,7 @@ interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
   scale?: number;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+const CheckboxComponent: React.FC<CheckboxProps> = ({
   children,
   className,
   state,
@@ -61,31 +66,31 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   input,
   ...props
 }) => {
-  // const { color } = useToken();
+  // const { color } = useTheme();
+
   return (
-    <StyledComponentsProvider>
-      <StyledLabel
-        className={clsx(styles.root, sizeMap[size || "normal"], className)}
-        $color={
-          color || stateMap[props.disabled ? "disabled" : state || "success"]
-        }
-        $size={scale || 1}
-        $themeMode={theme || "light"}
-        {...props}
-      >
-        <input
-          {...input}
-          disabled={props.disabled}
-          type="checkbox"
-          // id={props.name}
-        />
-        <span />
-        {
-          children
-        }
-      </StyledLabel>
-    </StyledComponentsProvider>
+    <StyledLabel
+      className={clsx(styles.root, sizeMap[size || "normal"], className)}
+      $color={
+        color || stateMap[props.disabled ? "disabled" : state || "success"]
+      }
+      $size={scale || 1}
+      $themeMode={theme || "light"}
+      {...props}
+    >
+      <input
+        {...input}
+        disabled={props.disabled}
+        type="checkbox"
+      />
+      <span />
+      {
+        children
+      }
+    </StyledLabel>
   )
 };
+
+export const Checkbox = withStyledComponents(CheckboxComponent)
 
 export default Checkbox;

@@ -3,14 +3,19 @@ import {
 } from "react";
 import {
   palette,
-  PaletteInterface,
+  PaletteToken,
 } from "monorepo-design-system-tokens";  
-import styled from "styled-components";
+import styled, {
+  withTheme
+} from "styled-components";
+import {
+  withStyledComponents,
+} from "monorepo-design-system-providers";
 
 interface LabelProps extends ComponentPropsWithoutRef<"span"> {
   $size: number;
   $themeMode: string;
-  $color: PaletteInterface[keyof PaletteInterface] | string;
+  $color: PaletteToken[keyof PaletteToken] | string;
 }
 
 export const StyledLabel = styled.label<LabelProps>`
@@ -24,7 +29,7 @@ export const StyledLabel = styled.label<LabelProps>`
     } if (typeof props.$color === "string") {
       return props.$color;
     }
-    return props.theme.colors.primary.main;
+    return props.theme.colors.main;
   }};
 
   &:has(input:disabled) {
@@ -39,20 +44,20 @@ export const StyledLabel = styled.label<LabelProps>`
 
   & input:not(:checked) ~ span {
     border-width: calc(0.2rem * ${(props) => props.$size});
-    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.theme.colors.)};
+    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[600])};
   }
 
   &:hover input:not(:checked):not(:disabled) ~ span {
     border-width: calc(0.2rem * ${(props) => props.$size});
-    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color.primary[600])};
+    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[600])};
   }
 
   &:hover input:checked:not(:disabled) ~ span {
-    background-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color.primary[600])};
+    background-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[600])};
   }
 
   & input:checked ~ span {
-    background-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color.primary[500])};
+    background-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[500])};
   }
 
   & span::after {
