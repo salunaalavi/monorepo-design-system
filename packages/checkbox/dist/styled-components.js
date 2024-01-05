@@ -27,20 +27,20 @@ const StyledLabel = styled.label`
 
   & input:not(:checked) ~ span {
     border-width: calc(0.2rem * ${props => props.$size});
-    border-color: ${props => typeof props.$color === "string" ? props.$color : props.$color[500]};
+    border-color: ${props => typeof props.$color === "string" ? props.$color : props.$color.primary[500]};
   }
 
   &:hover input:not(:checked):not(:disabled) ~ span {
     border-width: calc(0.2rem * ${props => props.$size});
-    border-color: ${props => typeof props.$color === "string" ? props.$color : props.$color[600]};
+    border-color: ${props => typeof props.$color === "string" ? props.$color : props.$color.primary[600]};
   }
 
   &:hover input:checked:not(:disabled) ~ span {
-    background-color: ${props => typeof props.$color === "string" ? props.$color : props.$color[600]};
+    background-color: ${props => typeof props.$color === "string" ? props.$color : props.$color.primary[600]};
   }
 
   & input:checked ~ span {
-    background-color: ${props => typeof props.$color === "string" ? props.$color : props.$color[500]};
+    background-color: ${props => typeof props.$color === "string" ? props.$color : props.$color.primary[500]};
   }
 
   & span::after {
