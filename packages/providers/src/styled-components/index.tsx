@@ -8,7 +8,7 @@ import baseStyled, {
 import { PaletteToken, useToken } from 'monorepo-design-system-tokens';
 
 type TTheme = {
-  colors: PaletteToken[keyof PaletteToken],
+  colors: PaletteToken,
   fonts: string[],
 }
 
