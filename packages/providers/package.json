@@ -1,0 +1,41 @@
+{
+  "name": "monorepo-design-system-providers",
+  "version": "0.0.14-alpha.0",
+  "description": "Monorepo Design System Providers",
+  "author": "Saluna Alavi <salunaalavi@gmail.com>",
+  "homepage": "https://github.com/salunaalavi/monorepo-design-system#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist",
+    "src": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salunaalavi/monorepo-design-system.git"
+  },
+  "scripts": {
+    "compile": "rollup -c",
+    "compile:watch": "rollup -c -w",
+    "docs:dev": "npm run compile:watch"
+  },
+  "bugs": {
+    "url": "https://github.com/salunaalavi/monorepo-design-system/issues"
+  },
+  "dependencies": {
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "monorepo-design-system-tokens": "^0.0.21-alpha.0",
+    "monorepo-design-system-utils": "^0.0.14-alpha.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.2"
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.34"
+  }
+}
