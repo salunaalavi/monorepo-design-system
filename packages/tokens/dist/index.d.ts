@@ -34,14 +34,14 @@ declare const palette: {
         black: string;
     };
 };
-type PaletteInterface = (typeof palette);
+type PaletteToken = (typeof palette);
 
 interface TokenProviderProps extends PropsWithChildren {
-    color: PaletteInterface;
+    colors: PaletteToken;
 }
 declare const TokenProvider: React.FC<TokenProviderProps>;
 declare const useToken: () => {
-    color: {
+    colors: {
         primary: {
             main: string;
             100: string;
@@ -77,4 +77,4 @@ declare const useToken: () => {
     };
 };
 
-export { type PaletteInterface, TokenProvider, palette, useToken };
+export { type PaletteToken, TokenProvider, palette, useToken };

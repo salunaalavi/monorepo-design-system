@@ -33,4 +33,4 @@ export const palette = {
   },
 };
 
-export type PaletteInterface = (typeof palette);
+export type PaletteToken = (typeof palette);

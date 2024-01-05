@@ -3,20 +3,20 @@ import React, {
   useContext,
   PropsWithChildren,
 } from "react";
-import { palette, PaletteInterface } from "../palette";
+import { palette, PaletteToken } from "../palette";
 
 const TokenContext = createContext({
-  color: palette,
+  colors: palette,
 });
 
 interface TokenProviderProps extends PropsWithChildren {
-  color: PaletteInterface;
+  colors: PaletteToken;
 }
 
-export const TokenProvider: React.FC<TokenProviderProps> = ({ color, children }) => (
+export const TokenProvider: React.FC<TokenProviderProps> = ({ colors, children }) => (
   <TokenContext.Provider
     value={{
-      color,
+      colors,
     }}
   >
     {children}

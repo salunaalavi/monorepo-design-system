@@ -36,14 +36,14 @@ const palette = {
 };
 
 const TokenContext = /*#__PURE__*/createContext({
-  color: palette
+  colors: palette
 });
 const TokenProvider = ({
-  color,
+  colors,
   children
 }) => /*#__PURE__*/React.createElement(TokenContext.Provider, {
   value: {
-    color
+    colors
   }
 }, children);
 const useToken = () => {
