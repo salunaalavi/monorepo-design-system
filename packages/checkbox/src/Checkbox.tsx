@@ -23,18 +23,21 @@ import {
 } from "./utils";
 import styles from "./styles.module.scss";
 
-const theme = {
-  colors: palette,
-  fonts: ["sans-serif", "Poppins"],
-};
-
 export const StyledComponentsProvider = ({
   children,
-}: PropsWithChildren) => (
-  <ThemeProvider theme={theme}>
-    {children}
-  </ThemeProvider>
-);
+}: PropsWithChildren) => {
+  const { color } = useToken();
+
+  const theme = {
+    colors: color,
+    fonts: ["sans-serif", "Poppins"],
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      {children}
+    </ThemeProvider>
+)};
 
 interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
   color?: PaletteInterface[keyof PaletteInterface] | string;
@@ -52,19 +55,19 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   className,
   state,
   size,
-  color: colorProps,
+  color,
   scale,
   theme,
   input,
   ...props
 }) => {
-  const { color } = useToken();
+  // const { color } = useToken();
   return (
     <StyledComponentsProvider>
       <StyledLabel
         className={clsx(styles.root, sizeMap[size || "normal"], className)}
         $color={
-          color || colorProps || stateMap[props.disabled ? "disabled" : state || "success"]
+          color || stateMap[props.disabled ? "disabled" : state || "success"]
         }
         $size={scale || 1}
         $themeMode={theme || "light"}
