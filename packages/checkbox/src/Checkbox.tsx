@@ -4,17 +4,10 @@ import React, {
 } from "react";
 import clsx from "classnames";
 import {
-  ThemeProvider,
-  withTheme,
-  useTheme,
-} from "styled-components";
-import {
   withStyledComponents,
 } from "monorepo-design-system-providers";
 import {
-  palette,
   PaletteToken,
-  useToken,
 } from "monorepo-design-system-tokens";  
 import {
   Override,
@@ -27,22 +20,6 @@ import {
   stateMap,
 } from "./utils";
 import styles from "./styles.module.scss";
-
-export const StyledComponentsProvider = ({
-  children,
-}: PropsWithChildren) => {
-  const { colors } = useToken();
-
-  const theme = {
-    colors,
-    fonts: ["sans-serif", "Poppins"],
-  };
-
-  return (
-    <ThemeProvider theme={theme}>
-      {children}
-    </ThemeProvider>
-)};
 
 interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
   color?: PaletteToken[keyof PaletteToken] | string;

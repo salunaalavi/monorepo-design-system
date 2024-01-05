@@ -1,27 +1,11 @@
 import { extends as _extends } from './_virtual/_rollupPluginBabelHelpers.js';
 import React from 'react';
 import clsx from 'classnames';
-import { ThemeProvider } from 'styled-components';
 import { withStyledComponents } from 'monorepo-design-system-providers';
-import { useToken } from 'monorepo-design-system-tokens';
 import { StyledLabel } from './styled-components.js';
 import { sizeMap, stateMap } from './utils.js';
 import styles from './styles.module.scss.js';
 
-const StyledComponentsProvider = ({
-  children
-}) => {
-  const {
-    colors
-  } = useToken();
-  const theme = {
-    colors,
-    fonts: ["sans-serif", "Poppins"]
-  };
-  return /*#__PURE__*/React.createElement(ThemeProvider, {
-    theme: theme
-  }, children);
-};
 const CheckboxComponent = ({
   children,
   className,
@@ -47,4 +31,4 @@ const CheckboxComponent = ({
 };
 const Checkbox = withStyledComponents(CheckboxComponent);
 
-export { Checkbox, StyledComponentsProvider, Checkbox as default };
+export { Checkbox, Checkbox as default };

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ComponentPropsWithoutRef } from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import { PaletteToken } from 'monorepo-design-system-tokens';
 import { Override } from 'monorepo-design-system-utils';
 
@@ -32,7 +32,6 @@ declare const stateMap: {
     };
 };
 
-declare const StyledComponentsProvider: ({ children, }: PropsWithChildren) => React.JSX.Element;
 interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
     color?: PaletteToken[keyof PaletteToken] | string;
     size?: keyof typeof sizeMap;
@@ -45,4 +44,4 @@ interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
 }
 declare const Checkbox: (props: CheckboxProps) => React.JSX.Element;
 
-export { Checkbox, StyledComponentsProvider };
+export { Checkbox };
