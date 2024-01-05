@@ -1,30 +1,27 @@
-export interface PaletteInterface {
-  primary: {
-    light?: string
-    main: string
-    dark?: string
-  },
-  secondary: {
-    light?: string
-    main: string
-    dark?: string
-  },
-  common: {
-    white: string
-    black: string
-  },
-  text: {
-    primary: string
-    secondary?: string
-  }
-}
-
-const palette: PaletteInterface = {
+const palette = {
   primary: {
     main: "#0d47a1",
+    100: "#DCF1FC",
+    200: "#BAE0F9",
+    300: "#93C6EC",
+    400: "#73A9DB",
+    500: "#4882C3",
+    600: "#3465A7",
+    700: "#244B8C",
+    800: "#163471",
+    900: "#0D245D",
   },
   secondary: {
     main: "#311b92",
+    100: "#F3FBD2",
+    200: "#E5F8A7",
+    300: "#CCEC79",
+    400: "#B0D954",
+    500: "#8AC124",
+    600: "#70A51A",
+    700: "#578A12",
+    800: "#1D7911",
+    900: "#0F640A",
   },
   text: {
     primary: "#263238",
@@ -34,6 +31,8 @@ const palette: PaletteInterface = {
     white: "#FFFFFF",
     black: "#000000"
   },
-}
+};
+
+export type PaletteInterface = (typeof palette);
 
 export default palette
