@@ -1,0 +1,9 @@
+17 error Error: Command failed with exit code 1: git remote update
+17 error fatal: unable to access 'https://github.com/salunaalavi/monorepo-design-system.git/': Could not resolve host: github.com
+17 error     at makeError (C:\Users\USER\Documents\explore\monorepo-design-system\node_modules\execa\lib\error.js:59:11)
+17 error     at module.exports.sync (C:\Users\USER\Documents\explore\monorepo-design-system\node_modules\execa\index.js:186:17)
+17 error     at Object.execSync (C:\Users\USER\Documents\explore\monorepo-design-system\node_modules\lerna\dist\index.js:142:31)
+17 error     at updateRemote (C:\Users\USER\Documents\explore\monorepo-design-system\node_modules\lerna\dist\index.js:7773:18)
+17 error     at isBehindUpstream (C:\Users\USER\Documents\explore\monorepo-design-system\node_modules\lerna\dist\index.js:7763:3)
+17 error     at VersionCommand.initialize (C:\Users\USER\Documents\explore\monorepo-design-system\node_modules\lerna\dist\index.js:8054:57)
+17 error     at VersionCommand.runCommand (C:\Users\USER\Documents\explore\monorepo-design-system\node_modules\lerna\dist\index.js:1855:36)

@@ -1,13 +1,16 @@
 import {
   ComponentPropsWithoutRef,
 } from "react";
-import designTokens from "monorepo-design-system-tokens";  
+import {
+  palette,
+  PaletteInterface,
+} from "monorepo-design-system-tokens";  
 import styled from "styled-components";
 
 interface LabelProps extends ComponentPropsWithoutRef<"span"> {
   $size: number;
   $themeMode: string;
-  $color: typeof designTokens.palette;
+  $color: PaletteInterface;
 }
 
 export const StyledLabel = styled.label<LabelProps>`
@@ -36,20 +39,20 @@ export const StyledLabel = styled.label<LabelProps>`
 
   & input:not(:checked) ~ span {
     border-width: calc(0.2rem * ${(props) => props.$size});
-    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[500])};
+    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color.primary[500])};
   }
 
   &:hover input:not(:checked):not(:disabled) ~ span {
     border-width: calc(0.2rem * ${(props) => props.$size});
-    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[600])};
+    border-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color.primary[600])};
   }
 
   &:hover input:checked:not(:disabled) ~ span {
-    background-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[600])};
+    background-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color.primary[600])};
   }
 
   & input:checked ~ span {
-    background-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color[500])};
+    background-color: ${(props) => (typeof props.$color === "string" ? props.$color : props.$color.primary[500])};
   }
 
   & span::after {

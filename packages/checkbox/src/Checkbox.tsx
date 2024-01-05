@@ -6,7 +6,11 @@ import clsx from "classnames";
 import {
   ThemeProvider,
 } from "styled-components";
-import designTokens from "monorepo-design-system-tokens";  
+import {
+  palette,
+  PaletteInterface,
+  useToken,
+} from "monorepo-design-system-tokens";  
 import {
   Override,
 } from "monorepo-design-system-utils";
@@ -20,7 +24,7 @@ import {
 import styles from "./styles.module.scss";
 
 const theme = {
-  colors: designTokens.palette,
+  colors: palette,
   fonts: ["sans-serif", "Poppins"],
 };
 
@@ -32,9 +36,11 @@ export const StyledComponentsProvider = ({
   </ThemeProvider>
 );
 
-interface CheckboxProps extends Override<ComponentPropsWithoutRef<"input">, {
-  color?: typeof designTokens.palette;
+interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
+  color?: PaletteInterface;
   size?: keyof typeof sizeMap;
+  input?: ComponentPropsWithoutRef<"input">,
+  disabled?: boolean,
 }> {
   theme?: "light" | "dark";
   state?: keyof typeof stateMap;
@@ -46,31 +52,37 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   className,
   state,
   size,
-  color,
+  color: colorProps,
   scale,
   theme,
+  input,
   ...props
-}) => (
-  <StyledComponentsProvider>
-    <StyledLabel
-      className={clsx(styles.root, sizeMap[size || "normal"], className)}
-      $color={
-        color || stateMap[props.disabled ? "disabled" : state || "success"]
-      }
-      $size={scale || 1}
-      $themeMode={theme || "light"}
-    >
-      <input
+}) => {
+  const { color } = useToken();
+  return (
+    <StyledComponentsProvider>
+      <StyledLabel
+        className={clsx(styles.root, sizeMap[size || "normal"], className)}
+        $color={
+          color || colorProps || stateMap[props.disabled ? "disabled" : state || "success"]
+        }
+        $size={scale || 1}
+        $themeMode={theme || "light"}
         {...props}
-        type="checkbox"
-        // id={props.name}
-      />
-      <span />
-      {
-        children
-      }
-    </StyledLabel>
-  </StyledComponentsProvider>
-);
+      >
+        <input
+          {...input}
+          disabled={props.disabled}
+          type="checkbox"
+          // id={props.name}
+        />
+        <span />
+        {
+          children
+        }
+      </StyledLabel>
+    </StyledComponentsProvider>
+  )
+};
 
 export default Checkbox;
