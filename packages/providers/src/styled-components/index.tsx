@@ -1,12 +1,20 @@
 import React, {
-  ComponentType
+  ComponentType,
 } from "react";
-import {
+import baseStyled, {
   ThemeProvider,
+  ThemedStyledInterface,
 } from "styled-components";
-import { useToken } from 'monorepo-design-system-tokens';
+import { PaletteToken, useToken } from 'monorepo-design-system-tokens';
 
-interface ThemeProviderProps {}
+type TTheme = {
+  colors: PaletteToken[keyof PaletteToken],
+  fonts: string[],
+}
+
+interface ThemeProviderProps {
+  theme: TTheme,
+}
 
 export const withStyledComponents = <ComponentProps extends ThemeProviderProps>(Component: ComponentType<ComponentProps>) => {
   const { colors } = useToken();
@@ -26,3 +34,5 @@ export const withStyledComponents = <ComponentProps extends ThemeProviderProps>(
 
   return ComponentWithTheme
 };
+
+export const styled = baseStyled as ThemedStyledInterface<TTheme>;
