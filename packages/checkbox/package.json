@@ -1,7 +1,7 @@
 {
   "name": "monorepo-design-system-button",
   "displayName": "checkbox",
-  "version": "0.0.29-alpha.0",
+  "version": "0.0.30-alpha.0",
   "description": "Monorepo Design System Tokens Button",
   "author": "Saluna Alavi <salunaalavi@gmail.com>",
   "homepage": "https://github.com/salunaalavi/monorepo-design-system#readme",
@@ -32,8 +32,8 @@
     "@types/react-dom": "^18.2.18",
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.16",
-    "monorepo-design-system-providers": "^0.0.28-alpha.0",
-    "monorepo-design-system-tokens": "^0.0.24-alpha.0",
+    "monorepo-design-system-providers": "^0.0.30-alpha.0",
+    "monorepo-design-system-tokens": "^0.0.30-alpha.0",
     "monorepo-design-system-utils": "^0.0.24-alpha.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
