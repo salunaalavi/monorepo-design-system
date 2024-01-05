@@ -37,7 +37,7 @@ export const StyledComponentsProvider = ({
 );
 
 interface CheckboxProps extends Override<ComponentPropsWithoutRef<"label">, {
-  color?: PaletteInterface;
+  color?: PaletteInterface[keyof PaletteInterface] | string;
   size?: keyof typeof sizeMap;
   input?: ComponentPropsWithoutRef<"input">,
   disabled?: boolean,

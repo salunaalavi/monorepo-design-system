@@ -1,4 +1,6 @@
-import designTokens from "monorepo-design-system-tokens";  
+import {
+  palette
+} from "monorepo-design-system-tokens";  
 // import styles from "./styles.module.scss";
 
 export const sizeMap = {
@@ -8,8 +10,8 @@ export const sizeMap = {
 };
 
 export const stateMap = {
-  normal: designTokens.palette.primary as typeof designTokens.palette.primary,
-  success: designTokens.palette.secondary as typeof designTokens.palette.secondary,
+  normal: palette.primary as typeof palette.primary,
+  success: palette.secondary as typeof palette.secondary,
 };
 
 export default sizeMap;
